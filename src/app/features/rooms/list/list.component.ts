@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import {TableModule} from 'primeng/table';
 
@@ -14,6 +14,15 @@ import {TableModule} from 'primeng/table';
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss'
 })
-export class ListComponent {
+export class ListComponent implements OnInit{
+
+  constructor(){}
+
+  ngOnInit(): void {
+    
+  }
+
+
+
 
 }
