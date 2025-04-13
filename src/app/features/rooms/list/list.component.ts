@@ -31,7 +31,7 @@ export class ListComponent implements OnInit {
     this.roomService.GetAllRooms().subscribe({
       next: (response) => {
         if (response.isSuccess) {
-
+          this.rooms = response.response;
         }
       },
       error: (err) => console.log(err)

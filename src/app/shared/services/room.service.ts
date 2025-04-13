@@ -13,11 +13,11 @@ export class RoomService {
   constructor(private http: HttpClient) { }
 
   AddRoom(request: RoomAddRequest): Observable<any> {
-    return this.http.post<any>(`${environment.apiUrl}room/add`, request);
+    return this.http.post<any>(`${environment.apiUrl}/room/add`, request);
   }
 
   GetAllRooms(): Observable<Response<Room[]>> {
-    return this.http.get<Response<Room[]>>(`${environment.apiUrl}room/add`);
+    return this.http.get<Response<Room[]>>(`${environment.apiUrl}/room/add`);
   }
 
 }
