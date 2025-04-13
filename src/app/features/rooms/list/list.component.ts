@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
-import {TableModule} from 'primeng/table';
+import { TableModule } from 'primeng/table';
+import { RoomService } from '../../../shared/services/room.service';
+import { Room } from '../../../shared/models/room';
 
 
 @Component({
@@ -14,15 +16,27 @@ import {TableModule} from 'primeng/table';
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss'
 })
-export class ListComponent implements OnInit{
+export class ListComponent implements OnInit {
+  rooms: Room[] = [];
 
-  constructor(){}
+  constructor(
+    private roomService: RoomService
+  ) { }
 
   ngOnInit(): void {
-    
+
   }
 
+  fetchRooms() {
+    this.roomService.GetAllRooms().subscribe({
+      next: (response) => {
+        if (response.isSuccess) {
 
+        }
+      },
+      error: (err) => console.log(err)
+    })
+  }
 
 
 }
