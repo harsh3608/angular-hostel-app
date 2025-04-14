@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+
+.custom-style {
+    text-align: center;
+    padding: 1rem; /* Equivalent to p-3 */
+    border-radius: 0.25rem; /* Equivalent to border-round-sm */
+    font-weight: bold; /* Equivalent to font-bold */
+}
