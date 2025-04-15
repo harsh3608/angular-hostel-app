@@ -1,14 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Routes, RouterModule } from '@angular/router';
+import { ListComponent } from './list/list.component';
 
-import { RoomsRoutingModule } from './rooms-routing.module';
-
+const routes: Routes = [
+  {
+    path: '',
+    component: ListComponent
+  }
+];
 
 @NgModule({
-  declarations: [],
   imports: [
     CommonModule,
-    RoomsRoutingModule
+    RouterModule.forChild(routes)
   ]
 })
 export class RoomsModule { }
