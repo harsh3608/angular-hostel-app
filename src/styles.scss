@@ -1,8 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
-
-.custom-style {
-    text-align: center;
-    padding: 1rem; /* Equivalent to p-3 */
-    border-radius: 0.25rem; /* Equivalent to border-round-sm */
-    font-weight: bold; /* Equivalent to font-bold */
+body{
+    margin: 0px;
 }
+
+.p-menubar  {
+    display: flex;
+    align-items: center;
+    background: #bddcff !important;
+    border: 1px solid var(--p-menubar-border-color);
+    border-radius: 0 !important;
+     
+    color: #ffffff;
+    padding: var(--p-menubar-padding);
+    gap: var(--p-menubar-gap);
+  }
