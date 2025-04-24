@@ -4,6 +4,7 @@ import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { RoomService } from '../../../shared/services/room.service';
 import { Room } from '../../../shared/models/room';
+import { TooltipModule } from 'primeng/tooltip';
 
 
 @Component({
@@ -11,10 +12,12 @@ import { Room } from '../../../shared/models/room';
   imports: [
     CommonModule,
     ButtonModule,
-    TableModule
+    TableModule,
+    TooltipModule
   ],
   templateUrl: './list.component.html',
-  styleUrl: './list.component.scss'
+  styleUrl: './list.component.scss',
+  providers: [RoomService]
 })
 export class ListComponent implements OnInit {
   rooms: Room[] = [];
@@ -24,7 +27,7 @@ export class ListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
+    this.fetchRooms();
   }
 
   fetchRooms() {
@@ -32,6 +35,7 @@ export class ListComponent implements OnInit {
       next: (response) => {
         if (response.isSuccess) {
           this.rooms = response.response;
+          console.log(this.rooms);
         }
       },
       error: (err) => console.log(err)

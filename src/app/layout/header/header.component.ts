@@ -10,7 +10,7 @@ import { SidebarModule } from 'primeng/sidebar';
 import { RippleModule } from 'primeng/ripple';
 import { StyleClassModule } from 'primeng/styleclass';
 import { Sidebar } from 'primeng/sidebar';
-import { RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -24,7 +24,6 @@ import { RouterLink } from '@angular/router';
     SidebarModule,
     RippleModule,
     StyleClassModule,
-    RouterLink,
 
 
 
@@ -39,16 +38,13 @@ import { RouterLink } from '@angular/router';
 export class HeaderComponent {
   items: MenuItem[] | undefined;
   isExpanding = true;
-  toggleSideBar() {
-    this.isExpanding = !this.isExpanding;
-  }
   @ViewChild('sidebarRef') sidebarRef!: Sidebar;
-
-  closeCallback(e: Event): void {
-    this.sidebarRef.close(e);
-  }
-
   sidebarVisible: boolean = false;
+
+
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
     // this.items = [
@@ -84,8 +80,17 @@ export class HeaderComponent {
     // ];
   }
 
+  toggleSideBar() {
+    this.isExpanding = !this.isExpanding;
+  }
 
 
+  closeCallback(e: Event): void {
+    this.sidebarRef.close(e);
+  }
 
+  routeToPath(path:string){
+    this.router.navigate([path]);
+  }
 
 }

@@ -1,0 +1,6 @@
+{
+    "css.format.enable": true,
+    "scss.format.enable": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true
+}

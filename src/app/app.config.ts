@@ -7,6 +7,7 @@ import Lara from '@primeng/themes/lara';
 import Nora from '@primeng/themes/nora';
 import { routes } from './app.routes';
 import { definePreset } from '@primeng/themes';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 
 
 const MyPreset = definePreset(Lara, {
@@ -30,6 +31,7 @@ const MyPreset = definePreset(Lara, {
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
+    provideHttpClient(),
     provideRouter(routes),
     provideAnimationsAsync(),
     providePrimeNG({
