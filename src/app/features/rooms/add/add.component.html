@@ -1,1 +1,12 @@
-<p>add works!</p>
+<form [formGroup]="addForm" (ngSubmit)="addRoom()">
+    <div>
+        <label for="name">Room Number:</label>
+        <input id="name" formControlName="name" required />
+    </div>
+    <div>
+        <label for="capacity">Capacity:</label>
+        <input id="capacity" type="number" formControlName="capacity" required />
+    </div>
+    <button type="submit" [disabled]="addForm.invalid">Add Room</button>
+    
+</form>

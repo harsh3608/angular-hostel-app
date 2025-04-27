@@ -1,3 +1,7 @@
+<p-toast />
+<p-confirmdialog />
+
+
 <p-table [value]="rooms">
     <!-- Caption -->
     <ng-template #caption>
@@ -7,7 +11,7 @@
             </div>
             <div class="add-btn">
                 <p-button icon="pi pi-plus" severity="success" class="" pTooltip="Add Room"
-                    tooltipPosition="bottom" />
+                    tooltipPosition="bottom" (onClick)="openAddDialog()"/>
             </div>
         </div>
     </ng-template>
@@ -31,10 +35,10 @@
             <td>{{ room.customers }}</td>
             <td>{{ room.remarks }}</td>
             <td>
-                <p-button icon="pi pi-pencil" class="ml-3" />
+                <p-button icon="pi pi-pencil" class="ml-3" (onClick)="openUpdateDialog(room.id)"/>
 
                 <p-button icon="pi pi-trash" severity="danger" class="ml-2" pTooltip="Delete Room"
-                    tooltipPosition="bottom"/>
+                    tooltipPosition="bottom" (onClick)="confirmDelete($event,room.id)"/>
             </td>
         </tr>
     </ng-template>

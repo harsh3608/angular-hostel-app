@@ -20,4 +20,16 @@ export class RoomService {
     return this.http.get<Response<Room[]>>(`${environment.apiUrl}/room/getall`);
   }
 
+  GetRoomById(roomId: any): Observable<Response<Room>> {
+    return this.http.get<Response<Room>>(`${environment.apiUrl}/room/getbyid/${roomId}`);
+  }
+
+  UpdateRoom(roomId: any, request: RoomAddRequest): Observable<any> {
+    return this.http.put<any>(`${environment.apiUrl}/room/update/${roomId}`, request);
+  }
+
+  DeleteRoom(roomId: any): Observable<any> {
+    return this.http.delete<any>(`${environment.apiUrl}/room/delete/${roomId}`);
+  }
+
 }
